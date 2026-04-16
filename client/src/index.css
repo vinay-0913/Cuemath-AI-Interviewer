@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Custom Base Styles === */
+@layer base {
+  body {
+    @apply min-h-screen overflow-x-hidden bg-surface-primary text-ink-800;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.14);
+  }
+
+  ::selection {
+    background: rgba(245, 166, 35, 0.18);
+    color: inherit;
+  }
+}
+
+/* === Custom Utilities === */
+@layer utilities {
+  .glass {
+    @apply bg-white/65 backdrop-blur-xl border border-white/80;
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.03),
+      0 4px 16px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-hover {
+    @apply hover:bg-white/85 hover:shadow-lg transition-all duration-300 ease-out;
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-3xl border border-gray-100;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.04),
+      0 6px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  .card-elevated-hover {
+    @apply hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 ease-out;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-orange to-brand-teal bg-clip-text text-transparent;
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 40px rgba(245, 166, 35, 0.22);
+  }
+
+  .glow-orange-sm {
+    box-shadow: 0 4px 24px rgba(245, 166, 35, 0.22);
+  }
+
+  .shadow-glass {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* === Gradient Orb Animations === */
+.orb {
+  @apply absolute rounded-full pointer-events-none;
+  filter: blur(120px);
+}
+
+/* === Score Ring Animation === */
+.score-ring-progress {
+  transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+/* === Print Styles === */
+@media print {
+  body {
+    background: white !important;
+    color: #1a1a1a !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .glass,
+  .card-elevated {
+    background: #f8f8f8 !important;
+    backdrop-filter: none !important;
+    border: 1px solid #ddd !important;
+  }
+}

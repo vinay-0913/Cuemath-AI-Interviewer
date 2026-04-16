@@ -1,0 +1,27 @@
+{
+  "name": "cuemath-ai-tutor-screener",
+  "version": "1.0.0",
+  "description": "AI-powered voice interviewer for screening Cuemath tutor candidates",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev:server": "nodemon server.js",
+    "dev:client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "cd client && npm run build",
+    "postinstall": "cd client && npm install"
+  },
+  "dependencies": {
+    "@google/genai": "^1.49.0",
+    "@google/generative-ai": "^0.24.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "gsap": "^3.14.2",
+    "msedge-tts": "^2.0.4",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.9"
+  }
+}
